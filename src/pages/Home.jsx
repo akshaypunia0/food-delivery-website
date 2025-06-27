@@ -5,6 +5,7 @@ import Card from '../components/Card'
 import { food_items } from '../food'
 import UserContext, { dataContext } from '../context/UserContext'
 import { RxCross2 } from "react-icons/rx";
+import Card2 from '../components/Card2'
 
 
 const Home = () => {
@@ -54,7 +55,7 @@ const Home = () => {
 
             
 
-            <div className={`w-[40vw] h-[100%] fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500
+            <div className={`w-full md:w-[40vw] h-[100%] fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500
                 ${showCart ? "translate-x-0" : "translate-x-full"}`}>
                 <header className='w-[100%] flex justify-between items-center'>
                     <span className='text-green-400 text-[18px] font-semibold'>Order items</span>
@@ -62,6 +63,7 @@ const Home = () => {
                     className=' w-[30px] h-[30px] text-green-400 text-[18px] font-semibold cursor-pointer hover:text-gray-600'
                     onClick={() => setShowCart(false)}/>
                 </header>
+                <Card2 />
             </div>
         </div>
 
