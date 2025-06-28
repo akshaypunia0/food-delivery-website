@@ -6,9 +6,10 @@ import { dataContext } from '../context/UserContext';
 import { food_items } from '../food';
 
 
-const Navbar = () => {
+const Navbar = ({items}) => {
 
     let { input, setInput, category, setCategory, showCart, setShowCart } = useContext(dataContext)
+    
 
     useEffect(() => {
         const  newList = food_items.filter((item) =>item.food_name.includes(input) || item.food_name.toLowerCase().includes(input))
@@ -34,7 +35,7 @@ const Navbar = () => {
             className='w-[60px] h-[60px] bg-white flex justify-center items-center
             rounded-md shadow-md relative'
             onClick={() => setShowCart(true)}>
-                <span className='absolute top-0 right-2 text-green-500 font-bold text-[18px]'>0</span>
+                <span className='absolute top-0 right-2 text-green-500 font-bold text-[18px]'>{items.length}</span>
                 <LuShoppingBag 
                 className='w-[30px] h-[30px] text-green-500 cursor-pointer' 
                 />
