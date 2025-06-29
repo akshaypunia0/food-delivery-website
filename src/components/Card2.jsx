@@ -1,9 +1,12 @@
 import React from 'react'
 import image1 from '../assets/image1.avif'
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../redux/cartSlice';
 
 const Card2 = ({name, price, image, qty, id}) => {
+
+    let dispatch = useDispatch()
 
     return (
         <div className='w-[full] h-[110px] p-2 flex justify-between shadow-lg'>
@@ -27,9 +30,14 @@ const Card2 = ({name, price, image, qty, id}) => {
                 <span className='text-xl text-green-400 font-semibold'>
                     {price}/-
                 </span>
-                <RiDeleteBin6Line className='w-[30px] h-[30px] text-red-500'/>
+                <RiDeleteBin6Line className='w-[30px] h-[30px] text-red-500 cursor-pointer' onClick={() => dispatch(removeItem(id))}/>
             </div>
+
+            
+            
         </div>
+
+        
     )
 }
 

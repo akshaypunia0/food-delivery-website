@@ -17,7 +17,7 @@ const Navbar = ({items}) => {
     }, [input])
 
     return (
-        <div className='w-full h-[100px] flex justify-between items-center px-5 md:px-8'>
+        <div className='w-full h-[100px] flex justify-between items-center px-5 md:px-8 sticky top-0 bg-gray-300 shadow-lg'>
             <div className='w-[60px] h-[60px] bg-white flex justify-center items-center
             rounded-md shadow-md'>
                 <MdFastfood className='w-[30px] h-[30px] text-green-500' />
