@@ -2,7 +2,8 @@ import React from 'react'
 import image1 from '../assets/image1.avif'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
-import { removeItem } from '../redux/cartSlice';
+import { decrementQty, incrementQty, removeItem } from '../redux/cartSlice';
+import { toast  } from 'react-toastify';
 
 const Card2 = ({name, price, image, qty, id}) => {
 
@@ -19,9 +20,9 @@ const Card2 = ({name, price, image, qty, id}) => {
                         {name}
                     </div>
                     <div className='w-[110px] h-[40px] bg-slate-300 flex rounded-lg overflow-hidden shadow-lg border-2 border-green-500 font-semibold text-xl'>
-                        <button className='w-[30%] h-full bg-white flex justify-center items-center text-green-500 hover:bg-gray-100'>-</button>
+                        <button onClick={() => qty > 1 ? dispatch(decrementQty(id)) : 1} className='w-[30%] h-full bg-white flex justify-center items-center text-green-500 hover:bg-gray-100'>-</button>
                         <span className='w-[40%] h-full bg-slate-200 flex justify-center items-center text-green-500'>{qty}</span>
-                        <button className='w-[30%] h-full bg-white flex justify-center items-center text-green-500 hover:bg-gray-100'>+</button>
+                        <button onClick={() => dispatch(incrementQty(id))} className='w-[30%] h-full bg-white flex justify-center items-center text-green-500 hover:bg-gray-100'>+</button>
                     </div>
                 </div>
             </div>
@@ -30,7 +31,7 @@ const Card2 = ({name, price, image, qty, id}) => {
                 <span className='text-xl text-green-400 font-semibold'>
                     {price}/-
                 </span>
-                <RiDeleteBin6Line className='w-[30px] h-[30px] text-red-500 cursor-pointer' onClick={() => dispatch(removeItem(id))}/>
+                <RiDeleteBin6Line className='w-[30px] h-[30px] text-red-500 cursor-pointer' onClick={() => {dispatch(removeItem(id)); toast.error("Item deleted")}}/>
             </div>
 
             
