@@ -8,6 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 import Card2 from '../components/Card2'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+import Footer from '../components/Footer'
 
 
 const Home = () => {
@@ -43,7 +44,7 @@ const Home = () => {
             <Navbar items={items} />
 
             {
-                input ? null : <div className='flex flex-wrap justify-center items-center gap-5 w-[100%] mt-8' >
+                input ? null : <div className='flex flex-wrap justify-center items-center gap-5 w-[100%] mt-6' >
                     {Categories.map((item) => (
                         <div key={item.id} className='w-[140px] h-[140px] bg-white flex flex-col items-start gap-5 p-5 text-[15px] 
                 font-semibold text-gray-600 rounded-lg shadow-xl hover:bg-green-200 cursor-pointer transition-all duration-200'
@@ -55,7 +56,7 @@ const Home = () => {
                 </div>
             }
 
-            <div className='w-full flex flex-wrap gap-5 px-5 justify-center items-center pt-8 pb-8'>
+            <div className='w-full flex flex-wrap gap-5 px-0 justify-center items-center'>
                 {category.length > 0 ? <div className='w-full flex flex-wrap gap-[20px] px-5 justify-center items-center pt-8 pb-8'>
                     {category.map((item) => (
                         <div key={item.id}><Card name={item.food_name}
@@ -113,11 +114,9 @@ const Home = () => {
                 </div>
                     : <div className='text-center text-2xl text-green-500 font-semibold pt-10'>Your cart is empty</div>}
 
-
-
-
-
             </div>
+
+            <Footer />
         </div>
 
     )

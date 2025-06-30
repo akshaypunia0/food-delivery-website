@@ -17,12 +17,12 @@ const Navbar = ({items}) => {
     }, [input])
 
     return (
-        <div className='w-full h-[100px] flex justify-between items-center px-5 md:px-8 sticky top-0 bg-gray-300 shadow-lg'>
-            <div className='w-[60px] h-[60px] bg-white flex justify-center items-center
+        <div className='w-full h-[80px] flex justify-between items-center px-5 md:px-8 sticky top-0 bg-gray-300 shadow-lg'>
+            <div className='w-[50px] h-[50px] bg-white flex justify-center items-center
             rounded-md shadow-md'>
-                <MdFastfood className='w-[30px] h-[30px] text-green-500' />
+                <MdFastfood className='w-[28px] h-[28px] text-green-500' />
             </div>
-            <form className='w-[50%] h-[60px] bg-white flex items-center px-5 gap-5 rounded-md shadow-md md:w-[70%]'
+            <form className='w-[50%] h-[50px] bg-white flex items-center px-5 gap-5 rounded-md shadow-md md:w-[70%]'
                 onSubmit={(e) => e.preventDefault()}>
                 <FaSearch className='w-[20px] h-[20px] text-green-500' />
                 <input type="text"
@@ -32,12 +32,12 @@ const Navbar = ({items}) => {
                     onChange={(e) => setInput(e.target.value)} />
             </form>
             <div 
-            className='w-[60px] h-[60px] bg-white flex justify-center items-center
+            className='w-[50px] h-[50px] bg-white flex justify-center items-center
             rounded-md shadow-md relative'
             onClick={() => setShowCart(true)}>
-                <span className='absolute top-0 right-2 text-green-500 font-bold text-[18px]'>{items.length}</span>
+                <span className='absolute top-0 right-2 text-green-500 font-semibold text-[15px]'>{items.length}</span>
                 <LuShoppingBag 
-                className='w-[30px] h-[30px] text-green-500 cursor-pointer' 
+                className='w-[28px] h-[28px] text-green-500 cursor-pointer' 
                 />
             </div>
         </div>
